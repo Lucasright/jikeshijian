@@ -1,0 +1,1 @@
+串行GC时，回收老年代（代指tenured generation）堆内存的时间和年轻代（代指def new generation）的堆内存时间差不多.并行GC策略执行时，Full GC执行时间比Young GC时间短，增加堆内存的配置，Young GC执行次数少但回收数据量比较大，相应的GC暂停时间就会变大。同样配置最大堆内存的情况下，如果没有配置最小堆内存，使用默认的自适应模式，发生Young GC及Full GC频率比较多。CMS GC策略，发生CMS GC时，在初始化标记和最终标记时会发生GC暂停，其它阶段可以并发执行，中间伴随Young GC。G1 GC策略与CMS GC类似，只要在降低堆内存的配置，就可以看到Full GC。
